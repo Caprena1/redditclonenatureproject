@@ -1,0 +1,62 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;    
+}
+
+body {
+    
+    /* background: linear-gradient(to bottom, rgb(247, 247, 187), rgb(218, 164, 32)); */
+    background-color: rgb(228, 183, 70);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+}
+
+p {
+    padding-bottom: 2px;
+    padding-top: 2px;
+    margin-bottom: 40px; 
+}
+
+h1 {  
+    font-size: 40px;
+    font-weight: 900;
+   
+}
+
+img {
+    width: 582px;
+    height: 614px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.card {
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(255, 167, 35);
+    color: white;
+    /* margin-left: 400; */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 5px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 700;
+}  
