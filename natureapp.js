@@ -13,7 +13,7 @@ app.set('view engine', 'pug')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
-app.use('./images', express.static('public'))
+app.use('/images', express.static('public'))
 app.use('/styles', express.static('styles'))
 
 
@@ -28,12 +28,11 @@ app.put('/entries', db.updateEntry)
 
 app.post('/entries', db.createEntry)
 
-// app.delete('./entries/:id', db.deleteEntry)
 
 app.listen(3000)
 //TODO LIST:
-//GET POST - GET 
-//CREATE DUMMY DATA
+//GET POST - GET - DONE
+//CREATE DUMMY DATA - DONE
 //1. Make script.js - DONE
     //PUG FILE CANNOT COMMUNICATE DIRECTLY WITH DATABASE, SO WE HAVE
     //MAKE A SCRIPT FILE (PUBLIC FOLDER)
@@ -43,13 +42,13 @@ app.listen(3000)
 //3. Make a fetch to ('/entries) in the SCRIPT FILE (route already exists in app file)-DONE
 //4. PARSE object (pull properties from object) - DONE
 //5. THINK ABOUT CARDS THAT WE MADE FOR ZOO API and WEATHER API (document.create....)
-    //we need to take data from script file to pug file - DOING A CARD
+    //we need to take data from script file to pug file - DOING A CARD - DONE
 
-//CREATE USERS - POST -DONE
+//CREATE ENTRIES - POST -DONE
 
-//UPDATE USERS - PUT -DONE
-//CREATE UPVOTES (DOWNVOTES-MAYBE?)-DONE
-//MAKE A CARD - CSS
+//UPDATE ENTRIES - PUT -DONE
+//CREATE UPVOTES AND DOWNVOTES
+//MAKE A CARD - CSS - DONE
 
 
 

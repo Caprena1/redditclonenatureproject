@@ -11,36 +11,21 @@ html(lang="en")
        
     body 
         div 
-            h1 Nature Reddit
-            nav.navbar.navbar-expand-lg.navbar-light.bg-light
-                .collapse.navbar-collapse(id='navbarSupportedContent')
-                    ul.navbar-nav.mr-auto
-                    li.nav-item.active
-                        a.nav-link(href='#') Create a Post 
-            
-                
-                .collapse.navbar-collapse(id='navbarSupportedContent')
-                    ul.navbar-nav.mr-auto
-                    li.nav-item.active
-                        a.nav-link(href='#') upvoteButton
-                
-                .collapse.navbar-collapse(id='navbarSupportedContent')
-                    ul.navbar-nav.mr-auto
-                    li.nav-item.active
-                        a.nav-link(href='#') upvoteButtondownvoteButton
-        div        
-        div.container 
-            
-            //- button.nav(onclick=`newpostButton('${newpostButton}')`) Create New Post
-            //- button.button(onclick=`upvoteButton('${upvoteButton}')`) Upvote 
-            //- button.button(onclick=`downvoteButton('${downvoteButton}')`) Downvote 
+            h1.display-1  Nature Reddit
 
+            form(action="/entries", method="POST")
+                input.form(type="text", name="title", placeholder="Title") 
+                input.form(type="text", name="imagelink", placeholder="Link for Image")
+                button.searchbutt(id='newPost') Create a New Post
+                
+        div.container
+            
+            button(id="upVote" onclick="upVote()") Upvote
+            p#votes=0
+            button(id="downVote" onclick="downVote()") Downvote
+            
             div#entries 
-             
-               
-        
-                
-
+    
                 script(src="/script.js") 
                 //- THE SCRIPT FILE IS CONNECTING PUG TO SCRIPT.JS AND SCRIPT.JS
                 //- IS COMMUNICATING TO EXPRESS FILE, WHICH IS COMMUNICATING TO THE DATABASE

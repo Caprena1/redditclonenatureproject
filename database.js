@@ -10,7 +10,7 @@ const pool = new Pool ({
 
 //GET THE USERS
 const getEntries = (request, response) => {
-    pool.query('SELECT * FROM entries ORDER BY id', (error, results) => {
+    pool.query('SELECT * FROM entries ORDER BY likes DESC', (error, results) => {
         if(error) {
             console.log(error)
         }
@@ -31,13 +31,15 @@ const getEntryById = (request, response) => {
 }
 
 const createEntry = (request, response) => {
-    const userLikes = req.params.userLikes
+    const userLikes = 0
+    const userTitle = request.body.title
+    const userImg = request.body.imagelink
 
-    pool.query('INSERT INTO entries (likes) VALUES ($1, $2)', [userLikes], (error, results) => {
+    pool.query('INSERT INTO entries (likes, title, imagelink) VALUES ($1, $2, $3)', [userLikes, userTitle, userImg], (error, results) => {
         if(error) {
             console.log(error)
         } else {
-            response.status(201).send(`User added with ID: ${results.insertID}`)
+            response.status(201).send(`Entry added with ID: ${results.insertID}`)
         }
     })
 }
