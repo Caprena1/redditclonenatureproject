@@ -25,6 +25,7 @@ app.get('/entries', db.getEntries)
 app.get('/entries/:id', db.getEntryById)
 
 app.put('/entries', db.updateEntry)
+app.put('/upvote/:id', db.upVote)
 
 app.post('/entries', db.createEntry)
 

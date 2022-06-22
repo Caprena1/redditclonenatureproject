@@ -57,6 +57,16 @@ const updateEntry = (request, response) => {
     })
 }
 
+const upVote = (request, response) => {
+    const id = parseInt(request.params.id)
+    pool.query('UPDATE entries SET likes = likes + 1 WHERE id = $1', [id], (error, results) => {
+        if(error) {
+            console.log(error)
+        } else {
+            console.log(results)
+        }
+    })
+}
 
 
 
@@ -67,5 +77,6 @@ module.exports = {
     updateEntry,
     createEntry,
     getEntryById,
+    upVote,
     
 }

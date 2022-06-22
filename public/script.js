@@ -27,6 +27,23 @@ fetch('/entries')
         likesElement.textContent = (`Likes: ${entry.likes}`)
         cardElement.appendChild(likesElement)
         console.log(likesElement)
+        
+        //CREATE UP AND DOWNVOTE BUTTONS
+        const upvoteElement = document.createElement('button')
+        upvoteElement.textContent = ('Upvote')
+        upvoteElement.setAttribute("id", "upVote")
+        upvoteElement.setAttribute("onclick", "upVote(this)")
+        upvoteElement.setAttribute("value", `${entry.id}`)
+        cardElement.appendChild(upvoteElement)
+        console.log(upvoteElement)
+
+        const downvoteElement = document.createElement('button')
+        downvoteElement.textContent = ('Downvote')
+        downvoteElement.setAttribute("id", "downVote")
+        downvoteElement.setAttribute("onclick", "downVote(this)")
+        downvoteElement.setAttribute("value", `${entry.id}`)
+        cardElement.appendChild(downvoteElement)
+        console.log(downvoteElement)
 
         //IMAGE - URL FOR EACH PICTURE 
         const imagelinkElement = document.createElement('img')
@@ -35,61 +52,31 @@ fetch('/entries')
         console.log(imagelinkElement)
 
         document.querySelector('#entries').appendChild(cardElement)
+
         })
 
-        let counter = 0
-
-        function upVote() {
-            counter++
-
-            document.getElementById('votes').innerHTML = counter
             
-        }
-        function downVote() {
-            counter--
-
-            document.getElementById('votes').innerHTML = counter
-            
-        }
-
-        
     })
     .catch((err) => console.log(err))
 
-        
 
-        
-    // function updateCounter() {
-    //     let likes = document.getElementById('id')
-    //     let value = 0
-    //     upVote.addEventListener("click", () => {
-    //         value++;
-    //         likes.textContent = value
-    //     })
-    //     downVote.addEventListener("click", () => {
-    //         value--;
-    //         likes.textContent = value
-    //     })
-
-        
-    // }
-
-
-    let counter = 0
-
-    function upVote() {
-        counter++
-
-        document.getElementById('votes').innerHTML = counter
-        
+    function upVote(button) {
+        let postID = button.getAttribute("value")
+        fetch(`/upvote/${postID}`, {
+            method: 'put', 
+        })
+           
+            
     }
-    function downVote() {
-        counter--
 
-        document.getElementById('votes').innerHTML = counter
-        
+    function downVote() {
+       
     }
 
     //connect likes to counter
+    //1. Go into app.js and create 2 put endpoints- a. upvote and b. downvote
+    //2. Move upvote and downvote buttons from pug file to script.js 
+    //3. Create two more fetch requests - upvotes and downvotesinside the fetch
+    
     //upvotes and downvotes - loop
     
