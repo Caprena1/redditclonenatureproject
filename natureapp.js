@@ -38,7 +38,7 @@ app.post('/entries', db.createEntry)
 app.listen(3000)
 //TODO LIST:
 //GET 
-POST - GET - DONE
+//POST - GET - DONE
 //CREATE DUMMY DATA - DONE
 //1. Make script.js - DONE
     //PUG FILE CANNOT COMMUNICATE DIRECTLY WITH DATABASE, SO WE HAVE
