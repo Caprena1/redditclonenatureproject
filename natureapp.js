@@ -24,10 +24,15 @@ app.get('/', (req, res) => {
 app.get('/entries', db.getEntries)
 app.get('/entries/:id', db.getEntryById)
 
+
+
 app.put('/entries', db.updateEntry)
 app.put('/upvote/:id', db.upVote)
+app.put('/downvote/:id', db.downVote)
+
 
 app.post('/entries', db.createEntry)
+
 
 
 app.listen(3000)

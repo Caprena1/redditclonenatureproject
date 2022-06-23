@@ -1,6 +1,4 @@
 const newPost = document.querySelector('#newpostButton')
-// const upVote = document.querySelector('upvoteButton')
-// const downVote = document.querySelector('downvoteButton')
 
 
 fetch('/entries')
@@ -16,11 +14,6 @@ fetch('/entries')
         cardElement.appendChild(titleElement)
         console.log(titleElement)
 
-        // TIMESTAMP
-        const timeElement = document.createElement('h4')
-        timeElement.textContent = (`Time Posted: ${entry.time_posted}`)
-        cardElement.appendChild(timeElement)
-        console.log(timeElement)
 
         //LIKES SHOWN
         const likesElement = document.createElement('h4')
@@ -61,6 +54,8 @@ fetch('/entries')
 
 
     function upVote(button) {
+        let time = Date.now()
+        fetch
         let postID = button.getAttribute("value")
         fetch(`/upvote/${postID}`, {
             method: 'put', 
@@ -69,9 +64,14 @@ fetch('/entries')
             
     }
 
-    function downVote() {
-       
+    function downVote(button) {
+        let postID = button.getAttribute("value")
+        fetch(`/downvote/${postID}`, {
+            method: 'put', 
+        })
     }
+
+
 
     //connect likes to counter
     //1. Go into app.js and create 2 put endpoints- a. upvote and b. downvote
