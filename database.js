@@ -1,12 +1,7 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
+const dev = require('./dev.js')
 const Pool = require('pg').Pool
-const pool = new Pool ({
-    user: "xcastudent",
-    host: "localhost",
-    database: "redditdb",
-    password: "password",
-    port: 5432
-})
+const pool = new Pool (dev)
 
 //GET THE USERS
 const getEntries = (request, response) => {
